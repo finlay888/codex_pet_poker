@@ -1,28 +1,20 @@
-# Sites Worker ESM starter
+# Pet Poker
 
-Use this starter for a static microsite, click counter, or simple internal UI whose state is browser-scoped. It has no dependencies and needs no install.
+Pet Poker is a browser-based Texas Hold’em prototype where a pet joins you at the table. The current version is a solo practice game against up to five bots using play chips.
 
-Edit `worker/index.js`, then publish through the Sites hosting workflow with this starter's build and validation in `commands`.
+## How to play
 
-The build copies only `worker/index.js` and `.openai/hosting.json`. Do not add standalone asset files. Embed any essential raster bytes in `worker/index.js` and serve or reference them as a data URL.
+Open `index.html` in a modern browser. Choose a seat, add or remove bots, and deal a hand. Each player receives two private cards; five community cards are dealt over the flop, turn, and river. Check, call, bet, raise, or fold to make the best five-card hand. The dealer button moves between hands, and the pot is awarded at showdown or when everyone else folds.
 
-Pass these argument arrays as `commands`:
+Use **How to play & pet** to upload a compatible PNG or WebP pet sprite sheet. The game displays its animations at your seat. Pet images are stored locally in your browser when space is available.
 
-```json
-[
-  ["bash", "scripts/build.sh"],
-  ["node", "scripts/validate-artifact.mjs"]
-]
-```
+## Current status
 
-The deterministic build produces:
+This is an early prototype, not an online multiplayer service. Bots use simple practice behaviour. Accounts, shared tables, server-side game state, and multiplayer betting have not yet been implemented. Chips have no monetary value. The sprite-sheet layout detector supports standard sheets and a padded eight-frame layout, but unusual sheets may need adjustment.
 
-```text
-dist/
-├── .openai/
-│   └── hosting.json
-└── server/
-    └── index.js
-```
+## Project files
 
-`dist/server/index.js` is an ES module with a default export containing `fetch(request, env, ctx)`. Edit `worker/index.js`, not the generated file under `dist/`.
+- `index.html` is the standalone browser version.
+- `worker/index.js` serves the same experience as a Worker.
+
+The standalone browser version does not require any dependencies.
